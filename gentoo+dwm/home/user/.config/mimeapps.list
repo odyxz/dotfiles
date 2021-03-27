@@ -1,0 +1,6 @@
+[Default Applications]
+application/pdf=zathura.desktop
+x-scheme-handler/tg=userapp-Telegram Desktop-YZ5GZ0.desktop
+
+[Added Associations]
+x-scheme-handler/tg=userapp-Telegram Desktop-CJKNY0.desktop;userapp-Telegram Desktop-YZ5GZ0.desktop;
