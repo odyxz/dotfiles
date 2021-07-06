@@ -112,7 +112,7 @@ getbattery(char *base)
 	} else if(!strncmp(co, "Charging", 8)) {
 		status = '+';
 	} else if(!strncmp(co, "Full", 4)){
-		status = ' ';
+		status = '\0';
 	}
 
 	co = readfile(base, "capacity");
@@ -151,7 +151,7 @@ main(void)
 		tmkiev = mktimes("%a %d %b %H:%M", tzkiev);
 		t0 = gettemperature("/sys/class/thermal/thermal_zone0/hwmon1/", "temp1_input");
 
-		status = smprintf(" T:%s | B:%s| %s ",
+		status = smprintf(" T:%s | B:%s | %s ",
 				t0, bat1, tmkiev);
 		setstatus(status);
 
