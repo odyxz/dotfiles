@@ -119,7 +119,7 @@ getbattery(char *base)
 	sscanf(co, "%d", &temp);
 
 	//return smprintf("%.0f%%%c", ((float)remcap / (float)descap) * 100, status);
-	return smprintf("%.0f%%%c", (float)temp), status;
+	return smprintf("%.0f%%%c", (float)temp, status);
 }
 
 char *
