@@ -9,7 +9,7 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "xos4 Terminus:size=10" };
 static const char dmenufont[]       = "xos4 Terminus:size=10";
-static const char col_gray1[]       = "#0a0a0a";
+static const char col_gray1[]       = "#000000";
 static const char col_gray2[]       = "#424242";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
