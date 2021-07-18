@@ -125,7 +125,7 @@ static Key keys[] = {
 	{ 0,                            XK_Print,  spawn,          SHCMD("maim ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H%M%S)_scrot.png ; notify-send 'Screen captured'") },
 	{ ShiftMask,                    XK_Print,  spawn,          SHCMD("maim -s ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H%M%S)_scrot.png -u ; notify-send 'Screen captured'") },
 	{ MODKEY,                            XK_Print,  spawn,          SHCMD("maim | xclip -selection clipboard -t image/png ; notify-send 'Screen captured and copied to clipboard'") },
-	{ MODKEY|ShiftMask,                    XK_Print,  spawn,          SHCMD("maim -u | xclip -selection clipboard -t image/png ; notify-send 'Screen captured and copied to clipboard'") },
+	{ MODKEY|ShiftMask,                    XK_Print,  spawn,          SHCMD("maim -s -u | xclip -selection clipboard -t image/png ; notify-send 'Screen captured and copied to clipboard'") },
         { 0,              XF86XK_AudioRaiseVolume, spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +1000 ; notify-send --app-name=volume_notifiers Volume: $(pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( 1 )) | tail -n 1 | sed -e 's,.* \\([0-9][0-9]*\\)%.*,\\1,')%") },
         { 0,              XF86XK_AudioLowerVolume, spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -1000 ; notify-send --app-name=volume_notifiers Volume: $(pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( 1 )) | tail -n 1 | sed -e 's,.* \\([0-9][0-9]*\\)%.*,\\1,' )%")  },
         { 0,              XF86XK_AudioMute,        spawn,          SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle ; notify-send 'Volume: Mute'") },
