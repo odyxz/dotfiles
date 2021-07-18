@@ -146,7 +146,7 @@ main(void)
 		return 1;
 	}
 
-	for (;;sleep(40)) {
+	for (;;sleep(30)) {
 		bat1 = getbattery("/sys/class/power_supply/BAT1");
 		tmkiev = mktimes("%a %d %b %H:%M", tzkiev);
 		t0 = gettemperature("/sys/class/thermal/thermal_zone0/hwmon1/", "temp1_input");
