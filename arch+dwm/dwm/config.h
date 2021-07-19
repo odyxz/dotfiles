@@ -10,7 +10,7 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "xos4 Terminus:size=10" };
 static const char dmenufont[]       = "xos4 Terminus:size=10";
 static const char col_gray1[]       = "#000000";
-static const char col_gray2[]       = "#424242";
+static const char col_gray2[]       = "#1a1a1a";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#18381a";
@@ -18,7 +18,8 @@ static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	[SchemeSel]  = { col_gray4, col_cyan,  "#9ccc9c"  },
-	[SchemeTitle]  = { "#FFFFFF", col_gray1,  col_gray2  },
+	[SchemeTitle]  = { col_gray4, col_gray2,  col_gray2  },
+	[SchemeTitleSel]  = { "#FFFFFF", col_cyan,  col_gray2  },
 };
 
 /* tagging */

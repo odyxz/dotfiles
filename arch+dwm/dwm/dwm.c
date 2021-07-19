@@ -60,7 +60,7 @@
 
 /* enums */
 enum { CurNormal, CurResize, CurMove, CurLast }; /* cursor */
-enum { SchemeNorm, SchemeSel, SchemeTitle }; /* color schemes */
+enum { SchemeNorm, SchemeSel, SchemeTitle, SchemeTitleSel }; /* color schemes */
 enum { NetSupported, NetWMName, NetWMState, NetWMCheck,
        NetWMFullscreen, NetActiveWindow, NetWMWindowType,
        NetWMWindowTypeDialog, NetClientList, NetLast }; /* EWMH atoms */
@@ -794,7 +794,7 @@ drawbar(Monitor *m)
 				&& !c->isfullscreen && !c->isfloating && NULL != c->mon->lt[c->mon->sellt]->arrange)
 					drw_setscheme(drw, scheme[m->sel == c ? SchemeTitle : SchemeNorm]);
 				else
-					drw_setscheme(drw, scheme[m->sel == c ? SchemeSel : SchemeNorm]);
+					drw_setscheme(drw, scheme[m->sel == c ? SchemeTitleSel : SchemeTitle]);
 
 				if (tw > 0) /* trap special handling of 0 in drw_text */
 					drw_text(drw, x, 0, tw, bh, lrpad / 2, c->name, 0);
