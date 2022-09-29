@@ -15,6 +15,7 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <fontconfig/fontconfig.h>
+#include <X11/XKBlib.h>
 #include <X11/extensions/Xrandr.h>
 #include <X11/extensions/Xinerama.h>
 #include <X11/extensions/dpms.h>
@@ -272,7 +273,7 @@ readpw(Display *dpy, struct xrandr *rr, struct lock **locks, int nscreens,
 	running = 1;
 	failure = 0;
 	oldc = INIT;
-
+	
 	while (running && !XNextEvent(dpy, &ev)) {
 		if (ev.type == KeyPress) {
 			explicit_bzero(&buf, sizeof(buf));
@@ -314,7 +315,7 @@ readpw(Display *dpy, struct xrandr *rr, struct lock **locks, int nscreens,
 					fprintf(stderr, "slock: %s\n", pam_strerror(pamh, retval));
 				pam_end(pamh, retval);
 				if (running) {
-					XBell(dpy, 100);
+					//XBell(dpy, 100);
 					failure = 1;
 				}
 				explicit_bzero(&passwd, sizeof(passwd));
@@ -406,8 +407,8 @@ lockscreen(Display *dpy, struct xrandr *rr, int screen)
 	                                &color, &color, 0, 0);
 	XDefineCursor(dpy, lock->win, invisible);
 
-	/* Try to grab mouse pointer *and* keyboard for 600ms, else fail the lock */
-	for (i = 0, ptgrab = kbgrab = -1; i < 6; i++) {
+	/* Try to grab mouse pointer *and* keyboard for 1000ms, else fail the lock */
+	for (i = 0, ptgrab = kbgrab = -1; i < 10; i++) {
 		if (ptgrab != GrabSuccess) {
 			ptgrab = XGrabPointer(dpy, lock->root, False,
 			                      ButtonPressMask | ButtonReleaseMask |
